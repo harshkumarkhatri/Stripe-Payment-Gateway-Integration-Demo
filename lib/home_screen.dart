@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> makePayment() async {
     try {
-      paymentIntent = await createPaymentIntent('100', 'USD');
+      paymentIntent = await createPaymentIntent('100', 'INR');
 
       //STEP 2: Initialize Payment Sheet
       await Stripe.instance
@@ -47,7 +47,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   paymentIntentClientSecret: paymentIntent![
                       'client_secret'], //Gotten from payment intent
                   style: ThemeMode.dark,
-                  merchantDisplayName: 'Ikay'))
+              merchantDisplayName: 'Harsh',
+            ),
+          )
           .then((value) {});
 
       //STEP 3: Display Payment sheet
